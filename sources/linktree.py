@@ -15,7 +15,7 @@ response = requests.request("POST", url, headers=headers, data=payload, files=fi
 resoult = []
 
 
-#print(response.text)
-#if response.text == {"result":"success"} : {
-#  resoult.extend()
-#}
+print(response.text)
+if response.text == {"result":"success"} : {
+  
+}
