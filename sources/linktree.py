@@ -10,12 +10,10 @@ headers = {
   'Cookie': 'countryCode=RU'
 }
 
-response = requests.request("POST", url, headers=headers, data=payload, files=files)
+response_linktree = requests.request("POST", url, headers=headers, data=payload, files=files)
 
-resoult = []
+print(response_linktree.text)
 
-
-print(response.text)
-if response.text == {"result":"success"} : {
+if response_linktree.text == {"result":"success"} : {
   
 }
