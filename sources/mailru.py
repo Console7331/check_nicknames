@@ -1,8 +1,9 @@
 import requests
+import inputfile
 
 url = "https://account.mail.ru/api/v1/user/exists"
 
-payload={'email': 'console@mail.ru'}
+payload={'email': inputfile.email_input + '@mail.ru'}
 files=[
 
 ]
