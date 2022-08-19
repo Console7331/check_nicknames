@@ -1,14 +1,16 @@
 import requests
-import inputfile
+requests.urllib3.disable_warnings()
+import json
+from color import color
 
-url = "https://account.mail.ru/api/v1/user/exists"
-
-payload={'email': inputfile.email_input + '@mail.ru'}
-files=[
-
-]
-headers = {}
-
-response = requests.request("POST", url, headers=headers, data=payload, files=files)
-
-print(response.text)
+def mailru_check(mailru_domain, email, email_list):
+	check_url = 'https://account.mail.ru/api/v1/user/exists'
+	payload = 'email='+email+'@'+mailru_domain
+	req = requests.get(check_url, timeout = 3, stream = False, verify = False, params = payload)
+	resp_json = json.loads(req.content)
+	status_bool = str(resp_json.get('body').get('exists'))
+	resp_dict = {'True': color('red')+'[-] Email is already use!'+color('end'), 'False': color('green')+'[+] Email is available!'+color('end')}
+	status = resp_dict.get(status_bool)
+	print(u"{0} Domain: {1}".format(status,mailru_domain))
+	if status_bool == 'False': 
+		email_list.append(email+'@'+mailru_domain)

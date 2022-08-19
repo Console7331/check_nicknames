@@ -1,4 +1,4 @@
-import inputfile
+import main
 
 #work()
 
