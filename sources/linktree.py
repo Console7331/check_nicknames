@@ -1,19 +1,16 @@
 import requests
+requests.urllib3.disable_warnings()
+from color import color
 
-url = "https://linktr.ee/validate/username"
-name = "linktree"
-payload={'username': 'console7331'}
-files=[
-
-]
-headers = {
-  'Cookie': 'countryCode=RU'
-}
-
-response_linktree = requests.request("POST", url, headers=headers, data=payload, files=files)
-
-print(response_linktree.text)
-
-if response_linktree.text == {"result":"success"} : {
-  
-}
+def linktree_check(nickname, service_list):
+  url = "https://linktr.ee/validate/username"
+  payload={'username': nickname}
+  files=[]
+  headers = {'Cookie': 'countryCode=RU'}
+  response = requests.request("POST", url, headers=headers, data=payload, files=files)
+  resp_dict = {'0': color('red')+'[-] Nickname is already use!'+color('end'), '1': color('green')+'[+] Nickname is available!'+color('end')}
+  if b'{"result":"success"}' in response._content:
+    print(resp_dict.get('1'), 'Service: linktr.ee')
+    service_list.append(nickname+' at linktr.ee')
+  else:
+    print(resp_dict.get('0'), 'Service: linktr.ee')
