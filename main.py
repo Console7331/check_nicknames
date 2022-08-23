@@ -1,11 +1,18 @@
-#from sources import linktree, mailru
 import os
 
 os.system('cls' if os.name=='nt' else 'clear')
-
 nickname = input("Please, type your nickname here: ")
-email_input = nickname
 
-from sources import emails
+if nickname is None:
+		print ("Please type your nickname")
+		os._exit(0)
 
-#emails
+email_check = input("Do you wanna check emails? y/n: ")
+if (email_check == 'y'):
+    from sources import emails
+    emails.check_emails(nickname)
+
+services_check = input("Do you wanna check services? y/n: ")
+if (services_check == 'y'):
+    from sources import services
+    services.check_services(nickname)
