@@ -47,6 +47,6 @@ def check_emails(email_input):
 	print (color('cyan')+'-------------------------------------------------'+color('end'))
 
 	outputfile = open('output.txt', 'w+')
-	outputfile.write('All avaliable emails:')					
+	outputfile.write('All avaliable emails:')
 	outputfile.writelines(str(email_list)+'\n')
 	outputfile.close()

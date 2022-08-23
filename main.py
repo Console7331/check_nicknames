@@ -16,3 +16,5 @@ services_check = input("Do you wanna check services? y/n: ")
 if (services_check == 'y'):
     from sources import services
     services.check_services(nickname)
+
+print("Check output.txt file, there is list of all available emails and services")
