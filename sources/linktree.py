@@ -11,6 +11,6 @@ def linktree_check(nickname, service_list):
   resp_dict = {'0': color('red')+'[-] Nickname is already use!'+color('end'), '1': color('green')+'[+] Nickname is available!'+color('end')}
   if b'{"result":"success"}' in response._content:
     print(resp_dict.get('1'), 'Service: linktr.ee')
-    service_list.append(nickname+' at linktr.ee')
+    service_list.append('linktr.ee')
   else:
     print(resp_dict.get('0'), 'Service: linktr.ee')
