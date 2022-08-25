@@ -23,7 +23,6 @@ def check_emails(email_input):
 	print (color('cyan')+'-------------------------------------------------'+color('end'))
 	print (color('magenta')+'             EXISTENCE EMAIL CHECKER'+color('end'))
 	print (color('cyan')+'-------------------------------------------------'+color('end'))
-
 	print ('Check email: ', color('yellow')+email+color('end'))
 
 	print(color('cyan')+'-------------------YANDEX.RU---------------------'+color('end'))
@@ -46,7 +45,7 @@ def check_emails(email_input):
 
 	print (color('cyan')+'-------------------------------------------------'+color('end'))
 
-	outputfile = open('output.txt', 'w+')
+	outputfile = open('output.txt', 'a')
 	outputfile.write('All avaliable emails:')
 	outputfile.writelines(str(email_list)+'\n')
 	outputfile.close()
