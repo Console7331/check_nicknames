@@ -2,6 +2,7 @@ from color import color
 from sources import linktree
 from sources import vk
 from sources import telegram
+from sources import twitter
 
 def check_services(nickname):
     print (color('cyan')+'-------------------------------------------------'+color('end'))	
@@ -11,16 +12,14 @@ def check_services(nickname):
     
     service_list = []
 
-    print (color('cyan')+'------------------LINKTR.EE---------------------'+color('end'))
     linktree.linktree_check(nickname, service_list)
-
-    print (color('cyan')+'------------------VK.COM---------------------'+color('end'))
     vk.vk_check(nickname, service_list)
-
-    print (color('cyan')+'------------------TELEGRAM---------------------'+color('end'))
     telegram.telegram_check(nickname, service_list)
+    twitter.twitter_check(nickname, service_list)
 
     print (color('cyan')+'-------------------------------------------------'+color('end'))
+
+
 
     outputfile = open('output.txt', 'a') 
     outputfile.write('All avaliable services:')
