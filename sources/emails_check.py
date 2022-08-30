@@ -1,11 +1,12 @@
 import requests
+
 requests.urllib3.disable_warnings()
 
 from color import color
-from emails import mailru
-from emails import rambler
-from emails import yandex
-from emails import gmail
+from sources.emails import mailru
+from sources.emails import rambler
+from sources.emails import yandex
+from sources.emails import gmail
 
 def check_emails(email):
 	print (color('cyan')+'-------------------------------------------------'+color('end'))

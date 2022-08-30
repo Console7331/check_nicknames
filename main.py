@@ -1,3 +1,5 @@
+from sources import emails_check
+from sources import services_check
 import os
 
 def main():
@@ -12,14 +14,12 @@ def main():
 
     email_check = input("Do you wanna check emails? y/n: ")
     if (email_check == 'y'):
-        from sources import emails
-        emails.check_emails(nickname)
+        emails_check.check_emails(nickname)
 
-    services_check = input("Do you wanna check services? y/n: ")
-    if (services_check == 'y'):
-        from sources import services
-        services.check_services(nickname)
-    if (services_check == 'y') or (email_check == 'y'):
+    service_check = input("Do you wanna check services? y/n: ")
+    if (service_check == 'y'):
+        services_check.check_services(nickname)
+    if (service_check == 'y') or (email_check == 'y'):
         print("Check output.txt file, there is list of all available emails and services")
 
 print(__name__)
