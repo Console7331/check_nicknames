@@ -1,4 +1,3 @@
-#from emails import email, headers, email_list
 from color import color
 import requests
 requests.urllib3.disable_warnings()

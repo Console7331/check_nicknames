@@ -1,8 +1,3 @@
-#created by p0z
-#edited by Console
-
-import os
-import sys
 import requests
 requests.urllib3.disable_warnings()
 

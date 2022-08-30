@@ -3,6 +3,7 @@ requests.urllib3.disable_warnings()
 from color import color
 
 def linktree_check(nickname, service_list):
+  print (color('cyan')+'------------------LINKTR.EE---------------------'+color('end'))
   url = "https://linktr.ee/validate/username"
   payload={'username': nickname}
   files=[]
