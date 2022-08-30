@@ -1,11 +1,13 @@
 import requests
+from color import color
 requests.urllib3.disable_warnings()
 import re
 from bs4 import BeautifulSoup
 
 
-def yandex_session(headers):
+def yandex_session():
 	global track_id, yandex_cookie, csrf_token
+	headers = {'UserAgent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'}
 	headers['x-requested-with'] = 'XMLHttpRequest'
 	sess_url = 'https://passport.yandex.ru/registration'
 	response = requests.get(sess_url, timeout = 3, stream = False, verify = False, headers = headers)
@@ -14,7 +16,10 @@ def yandex_session(headers):
 	csrf_token = re.search('"csrf":"(.+?)"', str(soup)).group(1)
 	yandex_cookie = response.cookies.get_dict()
 
-def yandex_check(email, headers, email_list, mail_status):
+def yandex_check(email, email_list):
+	print(color('cyan')+'-------------------YANDEX.RU---------------------'+color('end'))
+	mail_status = {'0': color('red')+'[-] Email is already use!'+color('end'), '1': color('green')+'[+] Email is available!  '+color('end')}
+	headers = {'UserAgent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'}
 	headers['x-requested-with'] = 'XMLHttpRequest'
 	check_url = 'https://passport.yandex.ru/registration-validations/login'
 	payload = 'track_id='+track_id+'&login='+email+'&csrf_token='+csrf_token

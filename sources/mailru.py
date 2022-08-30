@@ -4,6 +4,8 @@ import json
 from color import color
 
 def mailru_check(mailru_domain, email, email_list):
+	if mailru_domain == 'mail.ru':
+		print (color('cyan')+'--------------------MAIL.RU----------------------'+color('end'))
 	check_url = 'https://account.mail.ru/api/v1/user/exists'
 	payload = 'email='+email+'@'+mailru_domain
 	req = requests.get(check_url, timeout = 3, stream = False, verify = False, params = payload)

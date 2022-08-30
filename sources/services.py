@@ -19,8 +19,6 @@ def check_services(nickname):
 
     print (color('cyan')+'-------------------------------------------------'+color('end'))
 
-
-
     outputfile = open('output.txt', 'a') 
     outputfile.write('All avaliable services:')
     outputfile.writelines(str(service_list)+'\n')

@@ -11,8 +11,10 @@ def gmail_session():
 	parse=soup.find_all('div',{"class": "JhUD8d SQNfcc vLGJgb"})[0].get('data-initial-setup-data')
 	result=parse.split(',')[13]
 
-def gmail_check(email, headers, email_list):
+def gmail_check(email, email_list):
+	print (color('cyan')+'-------------------GMAIL.COM---------------------'+color('end'))
 	global status
+	headers = {'UserAgent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'}
 	headers['Google-Accounts-Xsrf'] = '1'
 	headers['Content-Type'] = 'application/x-www-form-urlencoded'
 	check_url = 'https://accounts.google.com/_/signup/webusernameavailability'
