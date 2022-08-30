@@ -1,8 +1,8 @@
 from color import color
-from sources import linktree
-from sources import vk
-from sources import telegram
-from sources import twitter
+from services import linktree
+from services import vk
+from services import telegram
+from services import twitter
 
 def check_services(nickname):
     print (color('cyan')+'-------------------------------------------------'+color('end'))	
