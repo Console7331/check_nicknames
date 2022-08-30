@@ -7,7 +7,6 @@ from sources import rambler
 from sources import yandex
 from sources import gmail
 
-
 def check_emails(email):
 	print (color('cyan')+'-------------------------------------------------'+color('end'))
 	print (color('magenta')+'             EXISTENCE EMAIL CHECKER'+color('end'))
