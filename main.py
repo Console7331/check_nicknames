@@ -1,6 +1,7 @@
 from sources import emails_check
 from sources import services_check
 import os
+import find_country
 
 def main():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -12,13 +13,20 @@ def main():
 
     f = open('output.txt', 'w').close()
 
+    find_country.country()
+    if find_country.country == 'RU':
+        vpn = 'no'
+    else: 
+        vpn = 'yes'
+    
     email_check = input("Do you wanna check emails? y/n: ")
     if (email_check == 'y'):
         emails_check.check_emails(nickname)
 
     service_check = input("Do you wanna check services? y/n: ")
     if (service_check == 'y'):
-        services_check.check_services(nickname)
+        services_check.check_services(nickname, vpn)
+
     if (service_check == 'y') or (email_check == 'y'):
         print("Check output.txt file, there is list of all available emails and services")
 
