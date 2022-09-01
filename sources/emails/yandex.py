@@ -6,14 +6,14 @@ from bs4 import BeautifulSoup
 
 
 def yandex_session():
-	global track_id, yandex_cookie, csrf_token
+	global yandex_track_id, yandex_cookie, yandex_csrf_token
 	headers = {'UserAgent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'}
 	headers['x-requested-with'] = 'XMLHttpRequest'
 	sess_url = 'https://passport.yandex.ru/registration'
 	response = requests.get(sess_url, timeout = 3, stream = False, verify = False, headers = headers)
 	soup = BeautifulSoup(response.content, 'html.parser')
-	track_id = soup.find_all('input',{'name':'track_id'})[0].get('value')
-	csrf_token = re.search('"csrf":"(.+?)"', str(soup)).group(1)
+	yandex_track_id = soup.find_all('input',{'name':'track_id'})[0].get('value')
+	yandex_csrf_token = re.search('"csrf":"(.+?)"', str(soup)).group(1)
 	yandex_cookie = response.cookies.get_dict()
 
 def yandex_check(email, email_list):
@@ -22,7 +22,7 @@ def yandex_check(email, email_list):
 	headers = {'UserAgent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'}
 	headers['x-requested-with'] = 'XMLHttpRequest'
 	check_url = 'https://passport.yandex.ru/registration-validations/login'
-	payload = 'track_id='+track_id+'&login='+email+'&csrf_token='+csrf_token
+	payload = 'track_id='+yandex_track_id+'&login='+email+'&csrf_token='+yandex_csrf_token
 	req = requests.post(check_url, data = payload, timeout = 3, stream = False, verify = False, headers = headers, cookies = yandex_cookie)
 	status = req.content
 	if b'login.not_available' in status:
