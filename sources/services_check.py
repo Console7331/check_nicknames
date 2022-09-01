@@ -5,7 +5,7 @@ from sources.services import telegram
 from sources.services import twitter
 from sources.services import instagram
 
-def check_services(nickname, vpn):
+def check_services(nickname, RU):
     print (color('cyan')+'-------------------------------------------------'+color('end'))	
     print (color('magenta')+'             EXISTENCE SERVICES CHECKER'+color('end'))
     print (color('cyan')+'-------------------------------------------------'+color('end'))
@@ -13,7 +13,7 @@ def check_services(nickname, vpn):
     
     service_list = []
 
-    if vpn == 'yes':
+    if RU == 'no':
         instagram.instagram_check(nickname, service_list)
     linktree.linktree_check(nickname, service_list)
     telegram.telegram_check(nickname, service_list)

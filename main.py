@@ -15,9 +15,9 @@ def main():
 
     find_country.country()
     if find_country.country == 'RU':
-        vpn = 'no'
+        RU = 'yes'
     else: 
-        vpn = 'yes'
+        RU = 'no'
     
     email_check = input("Do you wanna check emails? y/n: ")
     if (email_check == 'y'):
@@ -25,7 +25,7 @@ def main():
 
     service_check = input("Do you wanna check services? y/n: ")
     if (service_check == 'y'):
-        services_check.check_services(nickname, vpn)
+        services_check.check_services(nickname, RU)
 
     if (service_check == 'y') or (email_check == 'y'):
         print("Check output.txt file, there is list of all available emails and services")
