@@ -4,6 +4,7 @@ from sources.services import vk
 from sources.services import telegram
 from sources.services import twitter
 from sources.services import instagram
+from sources.services import habr
 
 def check_services(nickname, RU):
     print (color('cyan')+'-------------------------------------------------'+color('end'))	
@@ -13,6 +14,8 @@ def check_services(nickname, RU):
     
     service_list = []
 
+    
+    habr.habr_check(nickname, service_list)
     if RU == 'no':
         instagram.instagram_check(nickname, service_list)
     linktree.linktree_check(nickname, service_list)
