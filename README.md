@@ -9,6 +9,7 @@ If you wanna check sites, which are banned in Russia, you need to launch VPN bef
 - Yandex
 
 # The actual list of checking services:
+- Habr
 - Instagram
 - Linktr.ee
 - Telegram
@@ -18,5 +19,4 @@ If you wanna check sites, which are banned in Russia, you need to launch VPN bef
 # TODO LIST:
 - Facebook
 - LinkedIn
-- Habr
 - Stack Overflow
