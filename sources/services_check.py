@@ -20,7 +20,8 @@ def check_services(nickname, RU):
         instagram.instagram_check(nickname, service_list)
     linktree.linktree_check(nickname, service_list)
     telegram.telegram_check(nickname, service_list)
-    twitter.twitter_check(nickname, service_list)
+    if RU == 'no':
+        twitter.twitter_check(nickname, service_list)
     vk.vk_check(nickname, service_list)
 
     print (color('cyan')+'-------------------------------------------------'+color('end'))

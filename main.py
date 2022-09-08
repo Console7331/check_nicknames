@@ -30,6 +30,5 @@ def main():
     if (service_check == 'y') or (email_check == 'y'):
         print("Check output.txt file, there is list of all available emails and services")
 
-print(__name__)
 if __name__ == "__main__":
 	main()

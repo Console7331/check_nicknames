@@ -18,5 +18,3 @@ If you wanna check sites, which are banned in Russia, you need to launch VPN bef
 
 # TODO LIST:
 - Facebook
-- LinkedIn
-- Stack Overflow
