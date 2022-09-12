@@ -19,11 +19,12 @@ def  twitter_check(nickname, service_list):
 
     if b'"reason":"taken"' in data:
         print (resp_dict.get('0'), 'Twitter.com')
-    elif (b'"reason":"invalid_username"' in data) or (b'"reason":"is_banned_word"' in data):
+    elif (b'"reason":"invalid_username"' in data) or (b'"reason":"is_banned_word"' in data) or (b'"valid":false' in data):
         print (resp_dict.get('2'), 'Twitter.com')
     elif b'"reason":"available"' in data:
         print (resp_dict.get('1'), 'Twitter.com')
         service_list.append('Twitter.com')
+    
 
     ######################################
     #Need to fix method below

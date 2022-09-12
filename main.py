@@ -11,7 +11,9 @@ def main():
             print ("Please type your nickname")
             os._exit(0)
 
-    f = open('output.txt', 'w').close()
+    f = open('output.txt', 'w')
+    f.write('Username:' + nickname)
+    f.close()
 
     find_country.country()
     if find_country.country == 'RU':
