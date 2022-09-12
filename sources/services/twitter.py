@@ -24,3 +24,37 @@ def  twitter_check(nickname, service_list):
     elif b'"reason":"available"' in data:
         print (resp_dict.get('1'), 'Twitter.com')
         service_list.append('Twitter.com')
+
+    ######################################
+    #Need to fix method below
+    # because this method creates csrf token and cookie by yourself
+    ######################################
+def twitter_check_second(nickname, service_list):
+    #print (color('cyan')+'------------------TWITTER.COM---------------------'+color('end'))
+    headers = {'UserAgent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'}
+    headers['x-requested-with'] = 'XMLHttpRequest'
+    sess_url = 'https://www.twitter.com/'
+    response_sess = requests.get(sess_url, headers = headers)
+    twitter_cookie = response_sess.cookies.get_dict()
+    print(twitter_cookie)
+    print(response_sess.cookies)
+    headers['authorization'] = twitter_cookie.get('authorization')
+    headers['x-csrf-token'] = twitter_cookie.get('x-csrf-token')
+    url = "https://www.twitter.com/i/api/i/users/username_available.json?username="+nickname
+    payload = ''
+    headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    headers['user-agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.167 YaBrowser/22.7.4.957 Yowser/2.5 Safari/537.36'
+    response = requests.get(url, headers=headers, data=payload, cookies=twitter_cookie)
+    #resp_dict = {'0': color('red')+'[-] Nickname is already use!'+color('end'), '1': color('green')+'[+] Nickname is available!'+color('end'), '2': color('red')+'[-] Nickname is invalid!'+color('end')}
+    resp_dict = {'0': '[-] Nickname is already use!', '1':'[+] Nickname is available!', '2': '[-] Nickname is invalid!'}
+    if '"reason":"taken"' in response.text:
+        print(resp_dict.get('0'), 'Service: Twitter')
+    elif response.status_code != 200:
+        print(resp_dict.get('2'), 'Service: Twitter')
+    else:
+        print(resp_dict.get('1'), 'Service: Twitter')
+        service_list.append('Twitter')
+
+
+#empty_services = []
+#twitter_check_second(nickname='haxgajhxgfhj', service_list=empty_services)
