@@ -12,7 +12,7 @@ def main():
             os._exit(0)
 
     f = open('output.txt', 'w')
-    f.write('Username:' + nickname)
+    f.write('Username: ' + nickname)
     f.close()
 
     find_country.country()
