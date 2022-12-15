@@ -1,14 +1,17 @@
 # check_nicknames
+
 This repository will help you to check where is your username is available.
 If you wanna check sites, which are banned in Russia, you need to launch VPN before this Checker.
 
-# The actual list of checking emails:
+## The actual list of checking emails
+
 - Gmail
 - Mail.ru
 - Rambler
 - Yandex
 
-# The actual list of checking services:
+## The actual list of checking services
+
 - Facebook
 - Habr
 - Instagram
@@ -17,5 +20,6 @@ If you wanna check sites, which are banned in Russia, you need to launch VPN bef
 - Twitter
 - VK
 
-# TODO LIST:
+## TODO LIST
+
 - in progress
