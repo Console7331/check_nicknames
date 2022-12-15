@@ -4,11 +4,13 @@ def country():
 
     global country
     request_url = 'https://geolocation-db.com/jsonp/'
+    # https://ipinfo.io/json
     response = requests.get(request_url)
     result = response.content.decode()
     result = result.split("(")[1].strip(")")
     result  = json.loads(result)
     country = result.get('country_code')
+    # country = result.get('country')
 
 def checkip_fullinfo():
     import requests
